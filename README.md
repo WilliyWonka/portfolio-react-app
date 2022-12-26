@@ -4,7 +4,7 @@
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,37 +14,17 @@ You may also see any lint errors in the console.
 
 ## `AWS S3 upload`
 
-### `Make bucket`
+### `Deploy react to github`
 
-npm i aws-sdk util
+yarn add -D gh-pages
+
+### `Add package.json`
+
+"homepage": "http://WilliyWonka.github.io/portfolio-react-app",
+"predeploy":"npm run build",
+"deploy":"gh-pages -d build",
 
 
-### `bucket configuration`
-
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::BUCKET_NAME/*"
-        }
-    ]
-}
-
-## CORS configuration
-
-[
-    {
-        "AllowedOrigins": [ "*" ],
-        "AllowedMethods": [ "GET", "PUT", "POST", "HEAD" ],
-        "AllowedHeaders": [ "*" ],
-        "ExposeHeaders": [ "x-amz-server-side-encryption", "x-amz-request-id", "x-amz-id-2" ],
-        "MaxAgeSeconds": 3000
-    }
-]
 
 ### Code Splitting
 
